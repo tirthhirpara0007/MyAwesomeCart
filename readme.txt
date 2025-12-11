@@ -1,0 +1,1 @@
+--> how to clear crat. Run this function on console   -- localstorage.clear()

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dummy Payment</title>
+</head>
+<body>
+
+<h2>Dummy Payment Gateway</h2>
+
+<p>Order ID: {{ order_id }}</p>
+<p>Amount: ₹{{ amount }}</p>
+
+<form action="/shop/paymentstatus/" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="order_id" value="{{ order_id }}">
+    <button type="submit">Pay Now (Dummy)</button>
+</form>
+
+</body>
+</html>
