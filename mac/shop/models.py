@@ -13,7 +13,7 @@ class product(models.Model):
     image = models.ImageField(upload_to='shop/images', default="")
 
     def __str__(self):
-        return self.product_name
+        return f"{self.product_name}"# - {self.category}"
     
 class Contact(models.Model):
     msg_id = models.AutoField(primary_key=True)
@@ -39,6 +39,9 @@ class Orders(models.Model):
     zip_code = models.CharField(max_length=500)
     phone = models.CharField(max_length=500, default="")
 
+    def __str__(self):
+        return f"Order {self.order_id} - {self.name}"
+
 class OrderUpdate(models.Model):
     update_id = models.AutoField(primary_key=True)
     order_id = models.IntegerField(default="")
@@ -46,4 +49,4 @@ class OrderUpdate(models.Model):
     timestamp = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.update_desc[0:7] + "..."
+        return f"OrderUpdate {self.update_id} - {self.update_desc}"
